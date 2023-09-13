@@ -1,0 +1,24 @@
+# 配置文件
+title = "gin demo test"
+
+[app]
+env = "dev"
+app_name = "gin-test"
+http_host = "localhost"
+http_port = 8080
+enable_docs = true
+
+[mqtt]
+node = "andy"
+url = "tcp://10.250.68.225:1883"
+
+[database]
+host = "10.250.8.221"
+db_name = "gin-test"
+user = "gin-demo"
+password = "849c1878-5294-498b-accc-c1f6c6cc6bed"
+port = 3306
+connection_max = 1000
+enabled = true
+
+

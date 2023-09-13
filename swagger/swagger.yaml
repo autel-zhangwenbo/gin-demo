@@ -1,0 +1,49 @@
+info:
+  contact: {}
+paths:
+  /packed-logs/upload-events:
+    get:
+      description: 查看日志通知记录
+      parameters:
+      - description: page no
+        in: query
+        name: page_no
+        type: integer
+      - description: page size
+        in: query
+        name: page_size
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: int64
+        "403":
+          description: Forbidden
+      summary: 查看日志通知记录
+      tags:
+      - 日志通知相关接口
+    post:
+      description: 通知去APP端下载日志，然后处理日志存储到数据库与S3
+      parameters:
+      - description: 消息唯一标识, 保证消息可靠性和业务幂等性，由客户端生成（保证唯一即可）
+        in: formData
+        name: msg_id
+        required: true
+        type: string
+      - description: 日志包的地址
+        in: formData
+        name: s3_url
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "403":
+          description: Forbidden
+      summary: 被通知去APP端下载日志，然后处理日志存储到数据库与S3
+      tags:
+      - 日志通知相关接口
+swagger: "2.0"
